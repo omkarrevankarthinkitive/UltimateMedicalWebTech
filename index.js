@@ -9,6 +9,7 @@ import userRoutes from "./routes/userRoutes.js"
 import patientRoutes from "./routes/patientRoutes.js"
 import medicalHistory from "./routes/medicalHistoryRoutes.js"
 import doctorDetail from "./routes/DoctorDetailsRoute.js"
+import cors from 'cors'
 
 //THE DB CONNECTION
 connectDB()
@@ -18,7 +19,7 @@ connectDB()
 const app = express()
 app.use(express.json());
 
-
+app.use(cors())
 
 
 //ROUTES
@@ -34,7 +35,7 @@ app.use("/api/patient/medicalhistory",medicalHistory)
 app.use("/api/doctor/doctordetail",doctorDetail)
 
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4222
 
 
 

@@ -11,12 +11,12 @@ import { validateUser } from "../models/userModel.js";
 //authenticate user (login)
 const authUser = async (req, res) => {
     const { email, password } = req.body
-  
+    console.log(req.body, 'xyz')
     const user = await User.findOne({ email })
-    if (!user) return res.status(400).send('Invalid email or password.');
+    if (!user) return res.status(401).send('Invalid email or password.');
 
     const validPassword = await bcrypt.compare(req.body.password, user.password);
-    if (!validPassword) return res.status(400).send('Invalid email or password.');
+    if (!validPassword) return res.status(402).send('Invalid email or password.');
   
     res.json({
         _id: user._id,

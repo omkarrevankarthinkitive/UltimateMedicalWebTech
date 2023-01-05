@@ -27,30 +27,38 @@ function Login() {
     console.log(loginCredential)
     login(loginCredential);
   };
+  let statusCode
+  let fontToken
 
   const login = async (data) => {
-    await fetch("http://localhost:4022/api/users/login", {
+    await fetch("http://localhost:4222/api/users/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.json())
       .then((res) => {
-        if (res.status === 400) {
+        statusCode=res.status
+        return res.json()})
+      
+      .then((res) => {
+    
+        if (statusCode === 400) {
          console.log(res+"wwwwwwwwww")
         }
-        if (res.status === 200) {
+        if (statusCode === 201) {
           console.log("data: ", res);
+          
+
           localStorage.setItem("token", res.token);
 
           localStorage.setItem("user_id", res._id);
         
           setTimeout(() => {
             localStorage.setItem("islogin", true);
-
-            navigate("/dashboard");
+            
+            navigate("/api/dashboard");
           }, 2000);
           
         }
@@ -78,7 +86,7 @@ function Login() {
            <input style={{width:'500px',height:"40px",padding:"5px",border:"1px solid #CECCC1 ",backgroundColor:"transparent"}} value={emailer} type="text" placeholder="E-Mail" onChange={(e)=> setEmailer(e.target.value)}/>
              <input style={{width:'500px',height:"40px",padding:"5px",border:"1px solid #CECCC1 ",backgroundColor:"transparent"}} value={password} type="password"  placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
              <Button variant='contained' sx={{backgroundColor:"#08090B", '&:hover': {backgroundColor: "black"}, }} onClick={SubmitHandler}>Login</Button>  
-             <Typography sx={{color:"grey"}}>Don't have an account? <Link to="/api/user/reg" style={{textDecoration:"none",color:"#08090B"}}>Sign up for free</Link></Typography>
+             <Typography sx={{color:"grey"}}>Don't have an account? <Link to="/api/users" style={{textDecoration:"none",color:"#08090B"}}>Sign up for free</Link></Typography>
            </Box>
              
           </Box>

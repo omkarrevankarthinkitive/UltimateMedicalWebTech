@@ -6,6 +6,7 @@ import bcrypt from "bcrypt"
 import generateToken from "../utils/generateToken.js";
 //import { authUser } from "../authentication/basicAuth.js";
 import { validateUser } from "../models/userModel.js";
+import  Jwt  from "jsonwebtoken";
 
 
 //authenticate user (login)
@@ -17,14 +18,38 @@ const authUser = async (req, res) => {
 
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) return res.status(402).send('Invalid email or password.');
-  
-    res.json({
+     
+     
+    var payload
+    res.status(201).json({
         _id: user._id,
       name: user.name,
       email: user.email,
       token: generateToken(user._id),
      } )
+     
+     //payload = jwt.verify(token, "hello")pure
   }
+
+
+
+
+
+  //verify the token
+ const verifyToken=async (req,res)=>{
+  let token=req.body.Authorization
+  const decode = Jwt.verify(token, "hello");
+  console.log("decoed",decode)
+if(decode){
+  res.send({val:true})
+}else{
+  re.send({val:false})
+}
+
+ }
+
+
+
 
 
 //register user ( SignUp)
@@ -55,7 +80,8 @@ const authUser = async (req, res) => {
     userExists.password = await bcrypt.hash(userExists.password, salt);
     
     await userExists.save();
-    res.send(userExists)
+    
+    res.status(201).send(userExists)
     
   }
 
@@ -85,7 +111,7 @@ if (!user){
   return;
 };
 
-
+ 
 
 
 
@@ -95,6 +121,7 @@ if (!user){
   export {
     authUser,
     registerUser,
-    requestPasswordReset
+    requestPasswordReset,
+    verifyToken
 
   }

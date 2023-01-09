@@ -8,7 +8,7 @@ import { Doctor,validateDoctor } from "../models/doctorDetailModel.js";
 import { User } from "../models/userModel.js";
 
 
-//post user
+//post Doctor
 
 const doctorDetailPost=async(req,res)=>{
 //   const {error}=validateUser(req.body)
@@ -45,7 +45,38 @@ if (!user){
   return;
 
 }
+
+
+
+//search doctor
+
+const doctorSearch=async(req,res)=>{
+
+if(!req.body.searchField){
+  res.send("type doctors name")
+}
+const bodyIn=req.body.searchField
+
+console.log(bodyIn,"bodyin")
+
+const getDoctorsName=await Doctor.find({"doctorName" : {$regex : `${bodyIn}`}},{doctorName:1, _id:0}).limit(5)
+
+
+if(getDoctorsName){
+  res.status(200).send(getDoctorsName)
+}else{
+  res.status(400).send("oops its looks like we dont have nearby doctor on our database get them to use us")
+}
+ 
+
+}
+
+
+
+
+
    export {
    
-    doctorDetailPost
+    doctorDetailPost,
+    doctorSearch
   }

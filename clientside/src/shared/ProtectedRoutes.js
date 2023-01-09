@@ -9,13 +9,22 @@ function calling(){
   getToken(protectedData)
 }
 
+let newToken=localStorage.getItem("token")
+
+
+console.log(newToken,"thisisis")
+
 
 let finalVal=false
 async function getToken(data){
   await fetch("http://localhost:4222/api/users/verify",{
   method:"POST",
-  body:JSON.stringify(data),
-  headers:{"Content-Type": "application/json"},
+ 
+  header:{"Content-Type": "application/json",
+  "Authorization":"Beaer Bearer "+newToken
+
+
+},
 }
 ).then((res) => res.json())
 .then((res)=>{
@@ -31,7 +40,7 @@ calling()
 function ProtectedRoutes() {
   
 
-  return finalVal ? <Outlet /> : <Navigate to="/" />;
+  return newToken ? <Outlet /> : <Navigate to="/" />;
 }
 
 export default ProtectedRoutes;

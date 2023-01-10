@@ -10,6 +10,7 @@ import DashBorad from './Pages/DashBorad';
 //importing react router dom
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import ProtectedRoutes from './shared/ProtectedRoutes';
+import DocDetails from './Pages/DocDetails';
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
     <Route path='/api/users' element={<Signup/>}/>
     <Route element={<ProtectedRoutes/>} >
     <Route path='/api/dashboard' element={<DashBorad/>}/>
+   
     </Route>
+    <Route path='/api/doctordetails' element={<DocDetails/>}/>
    </Routes>
    </BrowserRouter>
   );

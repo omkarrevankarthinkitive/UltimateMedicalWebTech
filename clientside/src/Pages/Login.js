@@ -67,7 +67,7 @@ function Login() {
 
 
   return (
-    <div style={{padding:"83px 75px",backgroundColor:"#D3D3D3"}}>
+    <div style={{padding:"83px 75px",backgroundColor:"#D3D3D3",height:"100vh"}}>
 
 
         <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >

@@ -11,11 +11,11 @@ import Jwt  from "jsonwebtoken"
     //   }
     //   let token=req.body.Authorization
 
-    console.log(req.header,"gggggggg")
+    //console.log(req.header,"gggggggg")
     let token=req.header("Authorization")
     
     //token = token.slice(14);
-    console.log(token,"qiqiqiqi")
+    //console.log(token,"qiqiqiqi")
       const decode = Jwt.verify(token, "hello");
       console.log("decoed",decode)
     if(decode){
@@ -24,7 +24,7 @@ import Jwt  from "jsonwebtoken"
     }else{
       res.send({val:false})
      
-    }
+    } 
       
     } catch (error) {
       console.log(error.message)

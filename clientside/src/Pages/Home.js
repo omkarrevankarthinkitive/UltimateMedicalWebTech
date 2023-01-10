@@ -10,7 +10,7 @@ import {Link} from "react-router-dom"
 
 function Home() {
   return (
-    <div style={{padding:"100px 75px",backgroundColor:"#D3D3D3"}}>
+    <div style={{padding:"100px 75px",backgroundColor:"#D3D3D3",height:"100vh",marginTop:"0px"}}>
 
 
         <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >
@@ -27,10 +27,10 @@ function Home() {
             APP THAT SAVES UP A LOTS OF TIME
           </Typography>
 
-          <Typography sx={{fontSize:"5rem",fontWeight:"Bold",marginTop:"50px",color:"#454949"}}>THE EASIEST WAY TO B<span style={{color:"#393D3C"}}>OOK</span> YOUR <span style={{color:"#393D3C"}} >D</span>OCTOR.</Typography>
+          <Typography sx={{fontSize:"4rem",fontWeight:"Bold",marginTop:"50px",color:"#454949"}}>THE EASIEST WAY TO B<span style={{color:"#393D3C"}}>OOK</span> YOUR <span style={{color:"#393D3C"}} >D</span>OCTOR.</Typography>
 
 
-          <Box sx={{display:"flex",justifyContent:"flex-start",alignItems:"center",justifyContent:"space-between",marginTop:"30px"}}>
+          <Box sx={{display:"flex",justifyContent:"flex-start",alignItems:"center",justifyContent:"space-between",marginTop:"140px"}}>
             <Typography variant='p' sx={{fontSize:"16px",fontWeight:"bold",color:"grey"}}>No more waiting in the line to get that appointment</Typography>
             <Typography sx={{color:"white",borderRadius:"5px",fontWeight:"bold",float: "right",backgroundColor:"#08090B",padding:"7px"}}>FREE</Typography>
           </Box>

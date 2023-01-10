@@ -1,6 +1,6 @@
 import express from "express";
 import  {authUsered,adminRole,DoctorRole}  from "../authentication/basicAuth.js";
-import { doctorDetailPost,doctorSearch } from "../controllers/doctorDetailcontroller.js";
+import { doctorDetailPost,doctorSearch,docsearchAll } from "../controllers/doctorDetailcontroller.js";
 import verifyToken from "../utils/verify.js";
 const router=express.Router();
 
@@ -8,8 +8,9 @@ const router=express.Router();
 
 
 router.route("/").post(verifyToken,DoctorRole(),doctorDetailPost)
-router.route("/getdoctorsname").post(doctorSearch)
+router.route("/getdoctorsname").post(verifyToken,doctorSearch)
+router.route("/doctorsPage/:id").post(verifyToken,docsearchAll)
 
 
 
-export default router
+export default router 

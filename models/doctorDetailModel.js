@@ -22,7 +22,7 @@ const doctorSchema=new mongoose.Schema(
             required:true
         },
         email:{
-            type:String,
+            type:Object,
             required:true,
             ref:"User"
 

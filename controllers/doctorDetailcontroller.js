@@ -46,28 +46,46 @@ if (!user){
 
 }
 
+//doctor search by id
+const docsearchAll=async(req,res)=>{
+  try {
+    const theid=req.params.id
+    const doctorID= await Doctor.findById(theid)
+    res.send(doctorID)
+  
+
+  } catch (error) {
+    res.send([])
+  }
+}
+
+
 
 
 //search doctor
 
 const doctorSearch=async(req,res)=>{
+  try {
+    
+    const bodyIn=req.body.searchField
+    
+    console.log(bodyIn,"bodyin")
+    
+    const getDoctorsName=await Doctor.find({"doctorName" : {$regex : `${bodyIn}`}},{doctorName:1, _id:1}).limit(5)
+    
+   
+    
+    if(getDoctorsName){
+      res.status(200).send(getDoctorsName)
+    }
+     
+    
+  } catch (error) {
+    res.send([])
 
-if(!req.body.searchField){
-  res.send("type doctors name")
-}
-const bodyIn=req.body.searchField
-
-console.log(bodyIn,"bodyin")
-
-const getDoctorsName=await Doctor.find({"doctorName" : {$regex : `${bodyIn}`}},{doctorName:1, _id:0}).limit(5)
+  }
 
 
-if(getDoctorsName){
-  res.status(200).send(getDoctorsName)
-}else{
-  res.status(400).send("oops its looks like we dont have nearby doctor on our database get them to use us")
-}
- 
 
 }
 
@@ -78,5 +96,6 @@ if(getDoctorsName){
    export {
    
     doctorDetailPost,
-    doctorSearch
+    doctorSearch,
+    docsearchAll
   }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Box ,} from '@mui/system'
-import { Button,Typography} from '@mui/material'
-import Select from "react-select";
+import { Avatar, Button,Select,Typography} from '@mui/material'
 
-import {useNavigate} from "react-router-dom"
-import { func } from 'joi';
+import {useNavigate,Link} from "react-router-dom"
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 
@@ -14,7 +14,6 @@ function DashBorad() {
 
   const [dname,setDname]=useState("")
   const [dataAll,setDataAll]=useState([])
-  const [selectedOptions, setSelectedOptions] = useState();
 
    function handleDoctorChange(e){
     setDname(e.target.value)
@@ -77,64 +76,48 @@ const token=localStorage.getItem("token")
    
   }
 
-  function doctorDetail(){
-    console.log("hello")
-    navigate("/api/doctordetails/");
+  function doctorDetail(e){
+    const id=e
+    
+    navigate(`/api/doctordetails/:${id}`)
+
+  
    
    
     
   }
 
-  function handleSelect(data) {
-    setSelectedOptions(data);
-  }
-
-  console.log(selectedOptions,"selecteddddd")
-  function handleInputChange(e){
-   setDname(e)
-  }
 
   return (
-    <div>
-     {/* <Select
-  options={optionList}
-  placeholder="Select color"
-  value={selectedOptions}
-/> */}
+    <div style={{backgroundColor:"#F3F3F3",height:"100vh",padding:"0px 150px"}}>
 
-
-
-<Select
-onInputChange={handleInputChange}
-  options={dataAll || []}
-  placeholder="Select color"
-  value={dataAll}
-  
-  isSearchable={true}
-  
-/>
-
-      <datalist onClick={doctorDetail}  id="mylist">
-        { 
-         dataAll && dataAll.map((item)=>{
-          console.log(item,"itemsssss")
-           return (<option  style={{fontSize:"5rem"}} value={item.doctorName} /> )
-              
-            
-          })
-        }
-     <option value="value"/>
-   
-</datalist>
-      <Box sx={{padding:"2rem "}}>
+      
+      <Box sx={{padding:"2rem" }}>
       <Box sx={{display:"flex",justifyContent:"flex-start",alignItems:"center",justifyContent:"space-between"}}>
-            <Typography sx={{fontFamily:"Unbounded",fontSize:"1.5rem",color:"#08090B"}} >DOOK ®</Typography>
+            <Typography sx={{fontFamily:"Unbounded",fontSize:"1.5rem",color:"#08090B"}} ><Link to="/" style={{textDecoration:"none",color:"#08090B"}}>DOOK ®</Link></Typography>
             <Button  variant='outlined'sx={{border:"2px solid black",borderRadius:"30px",fontWeight:"bold",float: "right",fontSize:"1.5rem",color:"#08090B"}} onClick={handleLogOut} >LogOut</Button>
           </Box>
       </Box>
-      <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",height:"100%"}}>
-        <Typography sx={{fontSize:"3rem",fontWeight:"Bold",marginTop:"50px",color:"#454949"}}>Get An Appointment At Your Nearest Doc</Typography>
-       {/* <input value={dname} placeholder='Search Doctor Name' onChange={handleDoctorChange} type="search" list="mylist" style={{height:"5rem",width:"40rem",marginTop:"3rem",fontSize:"2.5rem",padding:"1rem",borderRadius:"2rem"}} /> */}
+      <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",backgroundColor:"white",borderRadius:"50px",boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+        <Typography sx={{fontSize:"2.5rem",fontWeight:"Bold",marginTop:"50px",color:"#454949"}}>GET AN APPOINTEMNT TO YOUR NEAREST DOCTOR.</Typography>
+        <Box  >
+        <SearchIcon sx={{fontSize:50,color:"#454949",opacity:"60%"}}/>
+        <input placeholder='Search Doctor Name' onChange={handleDoctorChange} type="search"  style={{height:"4rem",width:"40rem",marginTop:"3rem",fontSize:"2rem",padding:"1rem",border:"none",outline:"none",}} />
+        <hr/>
+        </Box>
+        <div  style={{width:"40rem",display:"flex",flexDirection:"column",paddingLeft:"25px"}} >
+        { 
+        // border:"2px solid #EAE0DA"
+        dname &&( dataAll && dataAll.map((item)=>{
+          console.log(item.img,"itemsssss")
+           return (<Button  sx={{fontSize:"1.3rem",color:"#454949",paddingBottom:"5px",animationDelay:"2sec",margin:"10px",borderRadius:"10px",justifyContent:"space-between",padding:"20px 20px 20px 1rem",'&:hover': {backgroundColor: "#F3F3F3",boxShadow:"none"},animationDelay:"250ms",fontWeight:"bold",boxShadow: "rgba(149, 157, 165, 0.2) 0px 5px 10px"}} onClick={()=>doctorDetail(item._id)} endIcon={<ArrowForwardIosIcon/>} > <span style={{display:"flex"}}><Avatar sx={{marginRight:"20px"}} src={item.img}/> {item.doctorName}</span>  </Button> )
+              
+
+          }))
+        }
+     <option value="value"/>
+   
+</div>
       </Box>
       
         

@@ -27,6 +27,11 @@ const doctorSchema=new mongoose.Schema(
             ref:"User"
 
         },
+        img:{
+            type:String,
+            required:true
+        },
+        
         phoneNumber:{
             type:String,
             required: true,

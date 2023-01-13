@@ -35,6 +35,7 @@ if (!user){
         state:req.body.state,
         pinCode:req.body.pinCode,
         aboutMyself:req.body.aboutMyself,
+        img:req.body.img
         
 
         
@@ -71,7 +72,7 @@ const doctorSearch=async(req,res)=>{
     
     console.log(bodyIn,"bodyin")
     
-    const getDoctorsName=await Doctor.find({"doctorName" : {$regex : `${bodyIn}`}},{doctorName:1, _id:1}).limit(5)
+    const getDoctorsName=await Doctor.find({"doctorName" : {$regex : `${bodyIn}`}},{doctorName:1, _id:1,img:1}).limit(5)
     
    
     

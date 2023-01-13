@@ -9,7 +9,7 @@ import {Link,useNavigate} from "react-router-dom"
 
 // importing the image
 
-import homeImage from "../assets/homeImage.jpg"
+import homeImage from "../assets/3.png"
 
 
 function Signup() {
@@ -90,7 +90,7 @@ const signup = async (data) => {
 
 
   return (
-    <div style={{padding:"83px 75px",backgroundColor:"#D3D3D3",height:"100vh"}}>
+    <div style={{padding:"83px 75px",backgroundColor:"#D3D3D3"}}>
 
 
         <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >
@@ -144,7 +144,7 @@ const signup = async (data) => {
           
 
         <Box sx={{ flex: "50%",justifyContent:"center",alignItems:"center",display:"flex"}}>
-          <img src={homeImage} alt="This is an home Image" style={{height:"620px"}} />
+          <img src={homeImage} alt="This is an home Image" style={{height:"90%"}} />
         </Box>
 
 

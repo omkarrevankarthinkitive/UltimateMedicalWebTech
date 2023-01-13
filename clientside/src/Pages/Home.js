@@ -4,16 +4,16 @@ import React from 'react'
 
 // importing the image
 
-import homeImage from "../assets/homeImage.jpg"
+import homeImage from "../assets/1.png"
 
 import {Link} from "react-router-dom"
 
 function Home() {
   return (
-    <div style={{padding:"100px 75px",backgroundColor:"#D3D3D3",height:"100vh",marginTop:"0px"}}>
+    <div style={{padding:"100px 75px",backgroundColor:"#D3D3D3"}}>
 
 
-        <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >
+        <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >  
          
 
         <Box sx={{padding:"30px",alignItems:"center", flex: "50%" }}>
@@ -41,7 +41,7 @@ function Home() {
           
 
         <Box sx={{ flex: "50%",justifyContent:"center",alignItems:"center",display:"flex"}}>
-          <img src={homeImage} alt="This is an home Image" style={{height:"660px"}} />
+          <img src={homeImage} alt="This is an home Image" style={{height:"90%"}} />
         </Box>
 
 

@@ -5,7 +5,23 @@ const PostAppointment=async(req,res)=>{
     try { 
 
         const newAppointment=new Appointment({
-           fields:req.body.fields
+            reason:req.body.reason,
+            location:req.body.location,
+            room:req.body.room,
+            diagnosis:req.body.diagnosis,
+            firstName:req.body.firstName,
+            lastName:req.body.lastName,
+            dob:req.body.dob,
+            gender:req.body.gender,
+            cellPhone:req.body.cellPhone,
+            homePhone:req.body.homePhone,
+            email:req.body.email,
+            address:req.body.address,
+            Province:req.body.Province,
+            city:req.body.city,
+            postalCode:req.body.postalCode,
+            aptTime:req.body.aptTime,
+            aptDate:req.body.aptDate
 
         })
 
@@ -23,8 +39,8 @@ const PostAppointment=async(req,res)=>{
 
 const getAppointment=async(req,res)=>{
     try {
-         const id="63beb9c781b7d927f3e155d5"
-     const getAppoint= await Appointment.findById(id)
+        
+     const getAppoint= await Appointment.find()
 
      console.log(getAppoint,"allAppointmentInOnePlace")
 

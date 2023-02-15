@@ -10,10 +10,10 @@ import {Link} from "react-router-dom"
 
 function Home() {
   return (
-    <div style={{padding:"100px 75px",backgroundColor:"#D3D3D3"}}>
+    <div style={{padding:"100px 75px",backgroundImage:`url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
 
 
-        <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >  
+        <Box sx={{display:"flex",background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"25px"}} >  
          
 
         <Box sx={{padding:"30px",alignItems:"center", flex: "50%" }}>
@@ -31,7 +31,7 @@ function Home() {
 
 
           <Box sx={{display:"flex",justifyContent:"flex-start",alignItems:"center",justifyContent:"space-between",marginTop:"140px"}}>
-            <Typography variant='p' sx={{fontSize:"16px",fontWeight:"bold",color:"grey"}}>No more waiting in the line to get that appointment</Typography>
+            <Typography variant='p' sx={{fontSize:"16px",fontWeight:"bold",color:"#454949"}}>No more waiting in the line to get that appointment</Typography>
             <Typography sx={{color:"white",borderRadius:"5px",fontWeight:"bold",float: "right",backgroundColor:"#08090B",padding:"7px"}}>FREE</Typography>
           </Box>
 

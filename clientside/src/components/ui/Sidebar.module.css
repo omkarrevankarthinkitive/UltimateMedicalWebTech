@@ -1,0 +1,207 @@
+.sideBarContainer{
+    width: 260px;
+    height: 100%;
+    background-color: #081A51;
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+
+
+/* top side */
+
+
+.iconCircleCss{
+   color: #445BFF;
+   background-color: #FFFFFF;
+   border-radius: 50%;
+   font-size: "5px";
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+
+}
+
+.symbolAndHead{
+   display: flex;
+   gap: 14px;
+}
+       
+.headingTop{
+   
+
+width: 57px;
+height: 29px;
+left: 84px;
+top: 30px;
+font-family: "Gilroy";
+
+
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 29px;
+
+
+}
+
+.topContainer{
+   display: flex;
+ 
+  flex-direction: row;
+  padding-left: 30px;
+  gap: 120px;
+  margin-bottom: 61px;
+  padding-top: 30px;
+}
+
+.roundCircle{
+   border: 1px solid #DADADA;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #FFFFFF;
+   height:"40px";
+   width: 40px;
+  
+   
+}
+
+.newStyle{
+   display: inline-block;
+   border-radius: 60px;
+   box-shadow: 0 0 2px #888;
+   padding: 0.5em 0.6em;
+}
+
+
+/* nav titles */
+
+.marginBottomNavHeads{
+   margin-bottom: 9px;
+}
+
+
+.sidebarHeading{
+ 
+width: 64px;
+height: 14px;
+left: 30px;
+top: 125px;
+
+
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+
+color: #51CBFF;
+padding-left: 30px;
+margin-bottom: 9px;
+
+
+
+}
+
+.sidebarHeading1{
+   width: 150px;
+   height: 14px;
+   left: 30px;
+   top: 125px;
+   
+  
+   font-style: normal;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 14px;
+   color: #51CBFF;
+   padding-left: 30px;
+   margin-bottom: 9px;
+   }
+
+
+/* flex the items  */
+.flexIconAndContent{
+   font-family: "Gilroy";
+   display: flex;
+   gap: 10px;
+   padding: 17px 0px 18px 34px;
+   color: #FFFFFF;
+   text-decoration: none;
+
+}
+
+
+.activeClassSide{
+   background-color:#1B2B65;
+   font-family: "Gilroy";
+   display: flex;
+   gap: 10px;
+   padding: 17px 0px 18px 24px;
+   margin-left: 16px;
+
+   border-top-left-radius:10px ;
+   border-bottom-left-radius:10px ;
+   height: 40%;
+    font-weight: 400;
+
+}
+
+
+
+
+
+/* end box with question mark */
+.boxWithQuestion{
+   background-color: #1B2B65;
+   width: 204px;
+
+
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 19px;
+
+margin-left: 24px;
+padding-bottom: 17px;
+margin-top: 140px;
+margin-bottom:24px;
+
+}
+
+.buttomBottomSide{
+ 
+   border-radius: "6px";
+   font-weight: 400;
+font-size: 12px;
+
+}
+
+.bottomiIcon{
+  
+}
+
+.borderQuestion{
+   border: 1px solid #081A51;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content:center ;
+   padding: 3.67px;
+   background-color: #FFFFFF;
+   position: relative;
+   bottom: 1rem;
+}
+
+
+
+/******************** nav styles *****************************/
+
+.navStyle{
+    color: #FFFFFF;
+    text-decoration: none;
+}

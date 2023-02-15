@@ -79,7 +79,7 @@ const token=localStorage.getItem("token")
   function doctorDetail(e){
     const id=e
     
-    navigate(`/api/doctordetails/:${id}`)
+    navigate(`/api/doctordetails/${id}`)
 
   
    
@@ -89,7 +89,7 @@ const token=localStorage.getItem("token")
 
 
   return (
-    <div style={{backgroundColor:"#F3F3F3",height:"100vh",padding:"0px 150px"}}>
+    <div style={{backgroundImage:`url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,backgroundRepeat:"no-repeat",backgroundSize:"cover",height:"100vh",padding:"0px 150px"}}>
 
       
       <Box sx={{padding:"2rem" }}>
@@ -98,11 +98,11 @@ const token=localStorage.getItem("token")
             <Button  variant='outlined'sx={{border:"2px solid black",borderRadius:"30px",fontWeight:"bold",float: "right",fontSize:"1.5rem",color:"#08090B"}} onClick={handleLogOut} >LogOut</Button>
           </Box>
       </Box>
-      <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",backgroundColor:"white",borderRadius:"50px",boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+      <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"50px",boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
         <Typography sx={{fontSize:"2.5rem",fontWeight:"Bold",marginTop:"50px",color:"#454949"}}>GET AN APPOINTEMNT TO YOUR NEAREST DOCTOR.</Typography>
         <Box  >
         <SearchIcon sx={{fontSize:50,color:"#454949",opacity:"60%"}}/>
-        <input placeholder='Search Doctor Name' onChange={handleDoctorChange} type="search"  style={{height:"4rem",width:"40rem",marginTop:"3rem",fontSize:"2rem",padding:"1rem",border:"none",outline:"none",}} />
+        <input placeholder='Search Doctor Name' onChange={handleDoctorChange} type="search"  style={{height:"4rem",width:"40rem",marginTop:"3rem",fontSize:"2rem",padding:"1rem",border:"none",outline:"none",borderRadius:"20px"}} />
         <hr/>
         </Box>
         <div  style={{width:"40rem",display:"flex",flexDirection:"column",paddingLeft:"25px"}} >

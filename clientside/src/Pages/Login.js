@@ -67,10 +67,10 @@ function Login() {
 
 
   return (
-    <div style={{padding:"83px 75px",backgroundColor:"#D3D3D3"}}>
+    <div style={{padding:"83px 75px",backgroundImage:`url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>
 
 
-        <Box sx={{display:"flex",backgroundColor:"#F3F3F3",borderRadius:"25px"}} >
+        <Box sx={{display:"flex",background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"25px"}} >
          
 
         <Box sx={{padding:"30px",alignItems:"center", flex: "50%"}}>
@@ -83,10 +83,10 @@ function Login() {
           <Typography sx={{fontSize:"3rem",marginTop:"3rem"}}>Welcome Back</Typography>
            <Typography sx={{fontSize:"1 rem",fontWeight:"bold",color:"#08090B"}}>Welcome back,please enter your details</Typography>
            <Box sx={{display:"flex",flexDirection:"column",gap:"25px",marginTop:"30px"}}>
-           <input style={{width:'500px',height:"40px",padding:"5px",border:"1px solid #CECCC1 ",backgroundColor:"transparent"}} value={emailer} type="text" placeholder="E-Mail" onChange={(e)=> setEmailer(e.target.value)}/>
-             <input style={{width:'500px',height:"40px",padding:"5px",border:"1px solid #CECCC1 ",backgroundColor:"transparent"}} value={password} type="password"  placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
+           <input style={{width:'500px',height:"40px",padding:"5px",border:"1px solid black ",backgroundColor:"transparent"}} value={emailer} type="text" placeholder="E-Mail" onChange={(e)=> setEmailer(e.target.value)}/>
+             <input style={{width:'500px',height:"40px",padding:"5px",border:"1px solid black ",backgroundColor:"transparent"}} value={password} type="password"  placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
              <Button variant='contained' sx={{backgroundColor:"#08090B", '&:hover': {backgroundColor: "black"}, }} onClick={SubmitHandler}>Login</Button>  
-             <Typography sx={{color:"grey"}}>Don't have an account? <Link to="/api/users" style={{textDecoration:"none",color:"#08090B"}}>Sign up for free</Link></Typography>
+             <Typography sx={{color:"black"}}>Don't have an account? <Link to="/api/users" style={{textDecoration:"none",color:"#08090B",fontWeight:"bold"}}>Sign up for free</Link></Typography>
            </Box>
              
           </Box>

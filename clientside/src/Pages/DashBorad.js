@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Box ,} from '@mui/system'
-import { Avatar, Button,Select,Typography} from '@mui/material'
+import { Avatar, Button,Typography} from '@mui/material'
 
 import {useNavigate,Link} from "react-router-dom"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import SearchIcon from '@mui/icons-material/Search';
 
-
+import module from "../CSS/Dashboard.module.css"
 
 
 function DashBorad() {
+
    const navigate=useNavigate()
 
   const [dname,setDname]=useState("")
@@ -61,7 +62,7 @@ const token=localStorage.getItem("token")
   };
 
 
-  //console.log(allData,"alllllllllllllllDAatatata")
+
 
 
 
@@ -81,40 +82,46 @@ const token=localStorage.getItem("token")
     
     navigate(`/api/doctordetails/${id}`)
 
-  
-   
-   
-    
-  }
+   }
+
+   function toAddDoctor(){
+    navigate(`/api/addoctors`)
+
+   }
 
 
   return (
-    <div style={{backgroundImage:`url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,backgroundRepeat:"no-repeat",backgroundSize:"cover",height:"100vh",padding:"0px 150px"}}>
+    <div className={module.mainConatinerDash}>
 
       
       <Box sx={{padding:"2rem" }}>
       <Box sx={{display:"flex",justifyContent:"flex-start",alignItems:"center",justifyContent:"space-between"}}>
-            <Typography sx={{fontFamily:"Unbounded",fontSize:"1.5rem",color:"#08090B"}} ><Link to="/" style={{textDecoration:"none",color:"#08090B"}}>DOOK ®</Link></Typography>
+            <Typography sx={{fontFamily:"Unbounded",fontSize:"1.5rem",color:"#08090B"}} ><Link to="/" className={module.titleLogo}>DOOK ®</Link></Typography>
             <Button  variant='outlined'sx={{border:"2px solid black",borderRadius:"30px",fontWeight:"bold",float: "right",fontSize:"1.5rem",color:"#08090B"}} onClick={handleLogOut} >LogOut</Button>
           </Box>
       </Box>
-      <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"50px",boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
-        <Typography sx={{fontSize:"2.5rem",fontWeight:"Bold",marginTop:"50px",color:"#454949"}}>GET AN APPOINTEMNT TO YOUR NEAREST DOCTOR.</Typography>
+      <Box sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow:"rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"50px"}}>
+        <Typography sx={{fontSize:"2.5rem",fontWeight:"Bold",marginTop:"50px",color:"#013455"}}>GET AN APPOINTEMNT TO YOUR NEAREST DOCTOR.</Typography>
         <Box  >
         <SearchIcon sx={{fontSize:50,color:"#454949",opacity:"60%"}}/>
-        <input placeholder='Search Doctor Name' onChange={handleDoctorChange} type="search"  style={{height:"4rem",width:"40rem",marginTop:"3rem",fontSize:"2rem",padding:"1rem",border:"none",outline:"none",borderRadius:"20px"}} />
+        <input placeholder='Search Doctor Name' className={module.inputSearchIcon} onChange={handleDoctorChange} type="search"   />
         <hr/>
         </Box>
-        <div  style={{width:"40rem",display:"flex",flexDirection:"column",paddingLeft:"25px"}} >
+        <div   className={module.divSmalls}  >
         { 
+
+        
         // border:"2px solid #EAE0DA"
         dname &&( dataAll && dataAll.map((item)=>{
-          console.log(item.img,"itemsssss")
-           return (<Button  sx={{fontSize:"1.3rem",color:"#454949",paddingBottom:"5px",animationDelay:"2sec",margin:"10px",borderRadius:"10px",justifyContent:"space-between",padding:"20px 20px 20px 1rem",'&:hover': {backgroundColor: "#F3F3F3",boxShadow:"none"},animationDelay:"250ms",fontWeight:"bold",boxShadow: "rgba(149, 157, 165, 0.2) 0px 5px 10px"}} onClick={()=>doctorDetail(item._id)} endIcon={<ArrowForwardIosIcon/>} > <span style={{display:"flex"}}><Avatar sx={{marginRight:"20px"}} src={item.img}/> {item.doctorName}</span>  </Button> )
+          
+           return (<Button  sx={{fontSize:"1.3rem",color:"#454949",paddingBottom:"5px",animationDelay:"2sec",margin:"10px",borderRadius:"10px",justifyContent:"space-between",padding:"20px 20px 20px 1rem",'&:hover': {background: "blur(10px)",backdropFilter: "saturate(200%) blur(10px)",boxShadow:"rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"50px"},animationDelay:"250ms",fontWeight:"bold",boxShadow: "rgba(149, 157, 165, 0.2) 0px 5px 10px"}} onClick={()=>doctorDetail(item._id)} endIcon={<ArrowForwardIosIcon/>} > <span className={module.buttonFlex}><Avatar sx={{marginRight:"20px"}} src={item.img}/> {item.doctorName}</span>  </Button> )
               
+        
 
           }))
         }
+        { dname && <Button onClick={toAddDoctor}  sx={{fontSize:"1.3rem",color:"#454949",paddingBottom:"5px",animationDelay:"2sec",margin:"10px",borderRadius:"10px",justifyContent:"space-between",padding:"20px 20px 20px 1rem",'&:hover': {background: "blur(10px)",backdropFilter: "saturate(200%) blur(10px)",boxShadow:"rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",borderRadius:"50px"},animationDelay:"250ms",fontWeight:"bold",boxShadow: "rgba(149, 157, 165, 0.2) 0px 5px 10px"}}  endIcon={<ArrowForwardIosIcon/>} > <span className={module.buttonFlex}>ADD NEW DOCTOR</span>  </Button> }
+        
      <option value="value"/>
    
 </div>

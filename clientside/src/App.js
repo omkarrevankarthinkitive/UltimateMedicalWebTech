@@ -9,13 +9,14 @@ import DashBorad from "./Pages/DashBorad";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import ProtectedRoutes from "./shared/ProtectedRoutes";
 import DocDetails from "./Pages/DocDetails";
-import BookApt from "./Pages/BookApt";
+
 import Appoint from "./Pages/Appoint";
 import { HorizontalNonLinearStepper } from "./Pages/AddAppointment";
 import RightDocDetals from "./components/ui/RightDocDetals";
 import ViewAppointment from "./Pages/ViewAppointment";
 
 import { ProSidebarProvider } from "react-pro-sidebar";
+import AddDoctors from "./Pages/AddDoctors";
 
 function App() {
   let { id } = useParams();
@@ -45,8 +46,8 @@ function App() {
             element={<ViewAppointment/>}/>
           </Route>
 
-          <Route path="/api/bookapt" element={<BookApt />} />
           <Route path="/api/apt" element={<Appoint />} />
+          <Route path="/api/addoctors" element={<AddDoctors/>}  />
         </Routes>
       </BrowserRouter>
     </ProSidebarProvider>

@@ -1,89 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Box, Typography, MenuItem ,Select} from "@mui/material";
-// import Select from "react-select";
+
 
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
+import module from ".././CSS/Addappointment.module.css"
 
-// import PatientModal from '../components/ui/PatientModal';
-// function AddAppointment() {
-//     const [open, setOpen] = React.useState(false);
-//     const [scroll, setScroll] = React.useState('paper');
-//     const handleClickOpen = (scrollType) => () => {
-//         setOpen(true);
-//         setScroll(scrollType);
-//       };
-//       const handleClose = () => {
-//         setOpen(false);
-//       };
-
-
-
-//   return (
-
-//          <div style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"20px"}} >
-//           <div>
-//             <h1 style={{color:"#454949"}}>CLICK BELLOW TO ADD AN APPOINTEMNT  </h1>
-//           </div>
-//       <Button variant='contained' onClick={handleClickOpen('paper')} sx={{height:"5rem",width:"20rem",fontSize:"1.5rem",backgroundColor:"#454949"}}>Add Appointment</Button>
-
-//       <Dialog
-//        fullWidth
-//         open={open}
-//         onClose={handleClose}
-//         scroll={scroll}
-//         aria-labelledby="scroll-dialog-title"
-//         aria-describedby="scroll-dialog-description"
-//       >
-//         <DialogTitle id="scroll-dialog-title"> + Add Appointment</DialogTitle>
-//         <DialogContent dividers={scroll === 'paper'}>
-//           <DialogContentText
-//             id="scroll-dialog-description"
-
-//             tabIndex={-1}
-//           >
-//             <Box sx={{margin:"1rem"}}>
-//             <h3>Appointment Reason</h3>
-//             <input placeholder='Reason' style={{border:"none",backgroundColor:"#eef0f1",width:"100%",height:"40px",padding:"8px 15px"}} />
-
-//             </Box>
-
-//             <Box sx={{margin:"1rem"}}>
-//             <h3>Diagnosis</h3>
-//             <Select isMulti name=""
-//             className="basic-multi-select"
-//             classNamePrefix="select"
-//             placeholder="Add new item"
-//             sx={{border:"none",backgroundColor:"#eef0f1",width:"100%"}}
-//             options={options}
-//             />
-//             </Box>
-
-//             <Box sx={{margin:"1rem"}}>
-//                 <h3>Location</h3>
-//                 <input placeholder='Type Location' style={{border:"none",backgroundColor:"#eef0f1",width:"100%",height:"40px",padding:"8px 15px"}}  />
-
-//             </Box>
-//             <Box sx={{margin:"1rem"}}>
-//                 <h3>Room</h3>
-//                 <input placeholder="Room No" style={{border:"none",backgroundColor:"#eef0f1",width:"100%",height:"40px",padding:"8px 15px"}} />
-//             </Box>
-
-//           </DialogContentText>
-//         </DialogContent>
-//         <DialogActions>
-
-//         <PatientModal/>
-//         </DialogActions>
-//       </Dialog>
-
-//     </div>
-//   )
-// }
-
-// export default AddAppointment
 
 const steps = [
   "Select Location and Room",
@@ -221,14 +145,10 @@ export const HorizontalNonLinearStepper = () => {
 
   return (
     <Box
-      sx={{
-        width: "80%",
-        background: "blur(10px)",
-        backdropFilter: "saturate(130%) blur(10px)",
-        boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
-        padding: "3rem",
-        borderRadius:"35px"
-      }}
+
+    className={module.topMainContainer}
+
+     
     >
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
@@ -236,7 +156,7 @@ export const HorizontalNonLinearStepper = () => {
             <StepButton color="inherit" onClick={handleStep(index)}>
               {label}
             </StepButton>
-          </Step>
+          </Step> 
         ))}
       </Stepper>
       <div>
@@ -265,13 +185,7 @@ export const HorizontalNonLinearStepper = () => {
                     value={user?.reason}
                     onChange={handleChange}
                     placeholder="Reason"
-                    style={{
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      width: "100%",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStylelong}
                     name="reason"
                   />
                 </Box>
@@ -339,11 +253,8 @@ export const HorizontalNonLinearStepper = () => {
             ) : activeStep + 1 === 2 ? (
               <>
                 <h4
-                  style={{
-                    fontWeight: "bold",
-                    color: "black",
-                    margin: "0.5rem 1rem ",
-                  }}
+                className="patientDetailTitle"
+                 
                 >
                   Patient Details
                 </h4>
@@ -354,13 +265,7 @@ export const HorizontalNonLinearStepper = () => {
                       value={user?.firstName}
                       onChange={handleChange}
                       name="firstName"
-                      style={{
-                        width: "100%",
-                        border: "none",
-                        backgroundColor: "#eef0f1",
-                        height: "40px",
-                        padding: "8px 15px",
-                      }}
+                      className={module.inputStylelong}
                     />
                   </Box>
                   <Box style={{ flex: 1 }}>
@@ -369,13 +274,8 @@ export const HorizontalNonLinearStepper = () => {
                       value={user?.lastName}
                       onChange={handleChange}
                       name="lastName"
-                      style={{
-                        width: "100%",
-                        border: "none",
-                        backgroundColor: "#eef0f1",
-                        height: "40px",
-                        padding: "8px 15px",
-                      }}
+                      className={module.inputStylelong}
+                     
                     />
                   </Box>
                 </Box>
@@ -391,13 +291,7 @@ export const HorizontalNonLinearStepper = () => {
                     value={user?.dob}
                     onChange={handleChange}
                     name="dob"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStylelong}
                     type="date"
                   />
                 </Box>
@@ -430,13 +324,7 @@ export const HorizontalNonLinearStepper = () => {
                       value={user?.cellPhone}
                       onChange={handleChange}
                       name="cellPhone"
-                      style={{
-                        width: "100%",
-                        border: "none",
-                        backgroundColor: "#eef0f1",
-                        height: "40px",
-                        padding: "8px 15px",
-                      }}
+                      className={module.inputStylelong}
                     />
                   </Box>
                 </Box>
@@ -447,13 +335,8 @@ export const HorizontalNonLinearStepper = () => {
                     value={user?.homePhone}
                     onChange={handleChange}
                     name="homePhone"
-                    style={{
-                      width: "48%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStyleShort}
+                    
                   />
                 </Box>
 
@@ -470,13 +353,7 @@ export const HorizontalNonLinearStepper = () => {
                     onChange={handleChange}
                     name="email"
                     type="email"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStylelong}
                   />
                 </Box>
 
@@ -487,13 +364,7 @@ export const HorizontalNonLinearStepper = () => {
                     onChange={handleChange}
                     name="address"
                     placeholder="Address"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStylelong}
                   />
                 </Box>
                 <Box sx={{ display: "flex", margin: "1rem", gap: "20px" }}>
@@ -502,28 +373,15 @@ export const HorizontalNonLinearStepper = () => {
                     onChange={handleChange}
                     name="Province"
                     placeholder="province"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                      flex: 1,
-                    }}
-                  />
+                    className={module.inputStylelongFlex}
+                                     />
                   <input
                     value={user?.city}
                     onChange={handleChange}
                     name="city"
                     placeholder="City"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                      flex: 1,
-                    }}
+                    className={module.inputStylelongFlex}
+
                   />
                 </Box>
                 <Box sx={{ margin: "1rem" }}>
@@ -532,13 +390,8 @@ export const HorizontalNonLinearStepper = () => {
                     onChange={handleChange}
                     name="postalCode"
                     placeholder="Postal Code"
-                    style={{
-                      width: "48%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStyleShort}
+
                   />
                 </Box>
               </>
@@ -565,13 +418,8 @@ export const HorizontalNonLinearStepper = () => {
                   <input
                     onChange={handleChange}
                     name="aptTime"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStylelong}
+
                     type="time"
                   />
                 </Box>
@@ -586,13 +434,8 @@ export const HorizontalNonLinearStepper = () => {
                   <input
                     onChange={handleChange}
                     name="aptDate"
-                    style={{
-                      width: "100%",
-                      border: "none",
-                      backgroundColor: "#eef0f1",
-                      height: "40px",
-                      padding: "8px 15px",
-                    }}
+                    className={module.inputStylelong}
+                   
                     type="date"
                   />
                   <Button variant="contained" sx={{backgroundColor:"#ffff",color:"#1976D2","&:hover": { backgroundColor: "#ffff", color: "#1976D2",marginTop:"1rem" }}} onClick={()=>{SubmitHandler();setChange(true)}}>

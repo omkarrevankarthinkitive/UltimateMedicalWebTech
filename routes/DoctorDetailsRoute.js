@@ -7,7 +7,7 @@ const router=express.Router();
 
 
 
-router.route("/").post(verifyToken,DoctorRole(),doctorDetailPost)
+router.route("/").post(doctorDetailPost)
 router.route("/getdoctorsname").post(verifyToken,doctorSearch)
 router.route("/doctorsPage/:id").post(verifyToken,docsearchAll)
 

@@ -1,5 +1,5 @@
 body{
-    color: #6F8BA4;
+    color: #f5f5f5;
     margin-top:20px;
 }
 .section {
@@ -89,9 +89,9 @@ img {
 
 .about-section .counter {
   padding: 22px 20px;
-  background: #ffffff;
+  margin-top:1rem;
   border-radius: 10px;
-  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .about-section .counter .count-data {
   margin-top: 10px;
@@ -120,4 +120,26 @@ mark {
 }
 .dark-color {
     color: #20247b;
+}
+
+
+.forBack{
+  background:blur(10px);
+  backdrop-filter: saturate(130%) blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 25px;
+}
+
+
+.mainDivRightDoc{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightDocImg{
+  height: 350px;
+  width: 350px;
+  border-radius: 25px;
+  box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px ;
 }

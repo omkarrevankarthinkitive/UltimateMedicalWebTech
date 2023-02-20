@@ -14,9 +14,7 @@ function DocDetails() {
     const location=useParams()
   const newLocation=  location.id
 
-  console.log(newLocation,"newLocation")
-
-console.log(newLocation,"newlocation")
+ 
 
     let justData={
         "_id":newLocation
@@ -77,7 +75,7 @@ let token=localStorage.getItem("token")
 
       <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",flex:6,backgroundImage:`url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")`,backgroundRepeat:"no-repeat",backgroundSize:"cover",}}>
         {
-          allData ? (<Outlet/>):null
+          allData ? (<Outlet />):null
         }
         
       

@@ -5,6 +5,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { TextField,Box } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
+import module from "../CSS/ViewApt.module.css"
 
 
 
@@ -12,6 +16,7 @@ import TableRow from '@mui/material/TableRow';
 export default function ViewAppointment() {
 
     const [initial,setInitial]=useState([])
+    const [field,setField]=useState("")
 
     let statusCode
 
@@ -43,16 +48,66 @@ const getAppointment = async () => {
       });
   };
 
+  function changeApt(e){
+
+    setField(e.target.value)
+
+  }
+
+   
+  const appointmentSearch = async (data) => {
+    await fetch("http://localhost:4222/api/appointment/search", {
+      method: "POST",
+      body:JSON.stringify(data),
+     
+      headers: {
+        "Content-Type": "application/json",
+        
+      },
+    })
+      .then((res) => {
+        statusCode=res.status
+        return res.json()})
+      
+      .then((res) => {
+     
+        if (statusCode === 400) {
+          console.log("error")
+        }
+        if (statusCode === 200) {
+          
+       setInitial(res)
+
+          
+          
+        }
+      });
+  };
+
+
+
   useEffect(()=>{
-    getAppointment()
-  },[])
+    const named={
+      "searchField":field
+    }
+    field.length > 0 ?(
+      appointmentSearch(named)
+    ):getAppointment()
+    
+  },[field])
 
 
 
 
   return (
     
-    <TableContainer  sx={{background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",padding:"3rem",height:"70vh",maxWidth:"50vw",borderRadius:"35px"}}>
+    <TableContainer  sx={{background: "blur(10px)",backdropFilter: "saturate(130%) blur(10px)",boxShadow: "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",padding:"3rem",height:"70vh",maxWidth:"50vw",borderRadius:"35px",display:"flex",alignItems:"start",flexDirection:"column"}}>
+      <Box sx={{width:"100%",display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <SearchIcon sx={{width:"60px",height:"80px",color:"#013552"}}/>
+      <input type="text" className={module.inputSearch}   value={field} onChange={changeApt}/>
+
+      </Box>
+      
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead >
           <TableRow>

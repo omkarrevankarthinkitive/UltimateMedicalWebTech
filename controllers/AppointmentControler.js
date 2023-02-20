@@ -34,6 +34,41 @@ const PostAppointment=async(req,res)=>{
     }
 }
 
+//search appointment
+const aptSearch=async(req,res)=>{
+    try {
+      
+      const bodyIn=req.body.searchField
+
+      if(!bodyIn){
+      
+      throw new Error;
+      }
+   
+      
+      
+      
+      const aptName=await Appointment.find({"firstName" : {$regex : `${bodyIn}`}},{firstName:1,lastName:1,aptTime:1,aptDate:1,city:1,room:1,diagnosis:1,reason:1}).limit(10)
+      
+     
+      
+     
+      return res.status(200).send(aptName)
+      
+       
+      
+    } catch (error) {
+        console.log(error);
+      res.status(400).send([])
+  
+    }
+  
+  
+  
+  }
+  
+
+
 
 //get the appointment list
 
@@ -89,4 +124,4 @@ try {
 }
 }
 
-export { PostAppointment ,getAppointment,updateAppoinment}
+export { PostAppointment ,getAppointment,updateAppoinment,aptSearch}

@@ -42,7 +42,7 @@ if (!user){
        })
 
   await newDoctor.save()
-  res.json(newDoctor)
+  res.status(200).json(newDoctor)
   return;
 
 }

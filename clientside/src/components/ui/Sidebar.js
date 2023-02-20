@@ -12,29 +12,34 @@ import {NavLink} from "react-router-dom"
  
 import {Typography,Box} from "@mui/material"
 
+import module from "../../CSS/Sidebar.module.css"
+
 function SideBar({newLocation}) {
   const { collapseSidebar } = useProSidebar();
   console.log(newLocation)
 
+
+  const idParam=localStorage.getItem("id")
   return (
     
-      <Sidebar backgroundColor="#FFFDF1"  style={{fontWeight:"bold",height:"100vh",color:"#003450"}}>
+      <Sidebar backgroundColor="#FFFDF1" className={module.sidebarMenuContainer}  >
         <Menu >
           <MenuItem
             icon={<MenuOutlinedIcon />}
             onClick={() => {
               collapseSidebar();
             }}
-            style={{ textAlign: "right" }}
+            className={module.sidearmenuItemContainer}
+            
           >
           
-            <Box sx={{display:"flex"}}>  
-      <Typography sx={{fontSize:"1.3rem",fontWeight:"bold",letterSpacing:"3px"}} >DOOK®</Typography></Box> 
+            <Box className={module.menuItemContainer}>  
+      <Typography className={module.menuItemContainerHead}  >DOOK®</Typography></Box> 
           </MenuItem> 
 
-          <MenuItem icon={<HomeOutlinedIcon />}><NavLink to={`/api/doctordetails/${newLocation}`} style={{color:"#454949",textDecoration:"none"}}>Doctor Details</NavLink> </MenuItem>
-          <MenuItem icon={<PeopleOutlinedIcon />}><NavLink to="/api/doctordetails/addappointment" style={{color:"#454949",textDecoration:"none"}}>add Appointment</NavLink></MenuItem>
-          <MenuItem icon={<ContactsOutlinedIcon />}><NavLink to="/api/doctordetails/view" style={{color:"#454949",textDecoration:"none"}}>View Appointment</NavLink> </MenuItem>
+          <MenuItem icon={<HomeOutlinedIcon />}><NavLink  to={`/api/doctordetails/${idParam}`} className={module.menuItemListItem}  >Doctor Details</NavLink> </MenuItem>
+          <MenuItem icon={<PeopleOutlinedIcon />}><NavLink to="/api/doctordetails/addappointment" className={module.menuItemListItem} >Add Appointment</NavLink></MenuItem>
+          <MenuItem icon={<ContactsOutlinedIcon />}><NavLink to="/api/doctordetails/view" className={module.menuItemListItem}>View Appointment</NavLink> </MenuItem>
           <MenuItem icon={<ReceiptOutlinedIcon />}>Profile</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
           <MenuItem icon={<CalendarTodayOutlinedIcon />}>Calendar</MenuItem>

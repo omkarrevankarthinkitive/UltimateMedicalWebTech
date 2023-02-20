@@ -1,17 +1,74 @@
-import React from 'react'
+
 import { Box,Button } from '@mui/material'
 import {useNavigate,Link} from "react-router-dom"
 import AddAppointment from '../../Pages/AddAppointment'
-function RightDocDetals({allData}) {
+import { useParams } from 'react-router-dom'
+import { useState,useEffect } from 'react'
+
+// import "./RightDocDeatils.css"
+
+
+function RightDocDetals() {
+    const navigate=useNavigate()
+    const [allData,setDataAll]=useState([])
+    const location=useParams()
+  const newLocation=  location.id
+
+ 
+
+    let justData={
+        "_id":newLocation
+    }
+    useEffect(()=>{
+        getdocByID(justData)
+    },[])
+
+let statusCode
+
+let token=localStorage.getItem("token")
+    const getdocByID = async (data) => {
+        await fetch(`http://localhost:4222/api/doctor/doctordetail/doctorsPage/${localStorage.getItem("id")}`, {
+          method: "POST",
+          
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
+          },
+        })
+          .then((res) => {
+            statusCode=res.status
+            return res.json()})
+          
+          .then((res) => {
+        
+            if (statusCode === 400) {
+             console.log(res+"wwwwwwwwww")
+            }
+            if (statusCode === 200) {
+              console.log("data: ", res);
+              setDataAll(res)
+    
+              
+              
+              
+            }
+          });
+      };
 
     const nevigate=useNavigate()
 
     function bookmyaptFunc(){
         nevigate("/api/apt")
     }
+    const params=useParams()
+
+    if(params.id){
+        localStorage.setItem("id",params.id)
+    }
+
   return (
-    <div style={{display:"flex",alignContent:"center",justifyContent:"center"}}>
-         <section className="section about-section gray-bg" id="about">
+    <div className="mainDivRightDoc" >
+         <section className="section about-section forBack" id="about" >
             <div className="container">
                 <div className="row align-items-center flex-row-reverse">
                     <div className="col-lg-6">
@@ -63,11 +120,11 @@ function RightDocDetals({allData}) {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-avatar">
-                            <img src={allData?.img} style={{height:"350px",width:"350px"}} title="" alt=""/>
+                            <img src={allData?.img} className="rightDocImg"  title="" alt=""/>
                         </div>
                     </div>
                 </div>
-                <div className="counter">
+                <div className="counter ">
                     <div className="row">
                         <div className="col-6 col-lg-3">
                             <div className="count-data text-center">

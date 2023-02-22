@@ -1,11 +1,7 @@
-function canViewProject(user,project){
-    return (
-        user.body.role="Admin" 
-
-    )
+function canViewProject(user, project) {
+  return (user.body.role = "Admin");
 }
 
-
-module.exports={
-    canViewProject
-}
+module.exports = {
+  canViewProject,
+};
